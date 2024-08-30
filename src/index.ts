@@ -1,12 +1,17 @@
 import express from "express";
 import bodyParser from "body-parser";
-import measureRoutes from "./routes/";
+import uploadRoute from "./routes/uploadRoute";
+import confirmRoute from "./routes/confirmRoute";
+import listRoute from "./routes/listRoute";
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use("/api", measureRoutes);
+app.use(uploadRoute);
+app.use(confirmRoute);
+app.use(listRoute);
 
 // Rota raiz  
 app.get('/', (req, res) => {  
